@@ -7,9 +7,11 @@ from .ec_core import Core
 
 class Program:
 
-	def __init__(self, argv, domains=[Core]):
+	def __init__(self, argv, extra=[]):
 
 		scriptName = argv[0]
+		domains=[Core]
+		domains.extend(extra)
 		f = open(scriptName, 'r')
 		source = f.read()
 		f.close()
