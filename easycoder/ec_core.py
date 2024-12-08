@@ -2079,9 +2079,9 @@ class Core(Handler):
         if type(value) == bool:
             return not value if condition.negate else value
         if type(value) == str:
-            if value.tolower() == 'true':
+            if value.lower() == 'true':
                 return False if condition.negate else True
-            if value.tolower() == 'false':
+            if value.lower() == 'false':
                 return True if condition.negate else False
         return False
 

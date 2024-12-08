@@ -32,7 +32,7 @@ To avoid having to use REPL you can set up a simple command such as this `bash` 
 from easycoder import Program
 Program(['test.ecs'])
 ```
-When given execute permission this runs as `./test.py`. In the repository is a simple `ecrun.py` script that if placed in your working directory and given execute permission will run any EasyCoder file.
+When given execute permission this runs as `./test.py`. In the repository there is an `ecrun.py` script that if placed in your working directory and given execute permission will run any EasyCoder file. In this case the command would be `./ecrun.py test.ecs`.
 
 It's conventional to add a program title:
 ```
@@ -49,6 +49,8 @@ Run Test
 5-> Hello, world!
 ```
 As you can guess from the above, the print command gives the line in the script it was called from. This is very useful in tracking down debugging print commands in large scripts.
+
+Also in the repository is `benchmark.ecs`; a test program containing many of the EasyCoder features. To see it running use the command `./ecrun.py benchmark.ecs`.
 
 ## The EasyCoder programming language
 There are three primary components to the language:

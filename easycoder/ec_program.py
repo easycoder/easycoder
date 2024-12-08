@@ -23,7 +23,7 @@ class Program:
 			print('No script supplied')
 			exit();
 
-		print(domains)
+#		print(domains)
 		f = open(scriptName, 'r')
 		source = f.read()
 		f.close()
