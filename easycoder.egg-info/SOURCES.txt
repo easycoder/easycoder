@@ -6,12 +6,10 @@ easycoder/ec_classes.py
 easycoder/ec_compiler.py
 easycoder/ec_condition.py
 easycoder/ec_core.py
-easycoder/ec_graphics.py
 easycoder/ec_handler.py
 easycoder/ec_program.py
 easycoder/ec_timestamp.py
 easycoder/ec_value.py
-easycoder/pyctures.py
 easycoder.egg-info/PKG-INFO
 easycoder.egg-info/SOURCES.txt
 easycoder.egg-info/dependency_links.txt

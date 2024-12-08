@@ -6,5 +6,3 @@ from .ec_handler import *
 from .ec_program import *
 from .ec_timestamp import *
 from .ec_value import *
-from .ec_graphics import *
-from .pyctures import *
