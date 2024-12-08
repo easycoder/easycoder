@@ -4,14 +4,26 @@ from collections import deque
 from .ec_classes import Script, Token, FatalError, RuntimeError
 from .ec_compiler import Compiler
 from .ec_core import Core
+import importlib
 
 class Program:
 
-	def __init__(self, argv, extra=[]):
+	def __init__(self, argv):
 
-		scriptName = argv[0]
+		scriptName = None
 		domains=[Core]
-		domains.extend(extra)
+		if len(argv)>1:
+			scriptName = argv[1]
+			for n in range(2, len(argv)):
+				arg=argv[n].split(':')
+				module = importlib.import_module(arg[0])
+				myClass = getattr(module, arg[1])
+				domains.append(myClass)
+		else:
+			print('No script supplied')
+			exit();
+
+		print(domains)
 		f = open(scriptName, 'r')
 		source = f.read()
 		f.close()
