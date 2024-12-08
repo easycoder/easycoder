@@ -10,13 +10,15 @@ pip install easycoder@git+https://github.com/easycoder/easycoder.git
 ```
 2: Write a test script, 'test.ecs':
 ```
-!   print `Hello, world!`
+print `Hello, world!`
 ```
 This is traditionally the first program to be written in virtually any language. To run it, launch Python and type the following commands:
 ```
 from easycoder import Program
 Program(['test.ecs'])
 ```
+The script is passed in as a list because it could be just one of a number of command-line arguments.
+
 The output will look like this:
 ```
 Compiled <anon>: 1 lines (2 tokens) in 0 ms
@@ -30,9 +32,7 @@ To avoid having to use REPL you can set up a simple command such as this `bash` 
 from easycoder import Program
 Program(['test.ecs'])
 ```
-The script is passed in as a list because it could be just one of a number of command-line arguments.
-
-When given execute permission this runs with the simple command `./test.py`. In the repository is a simple `ecrun.py` script that if placed in your working directory and given execute permission will run any EasyCoder file.
+When given execute permission this runs as `./test.py`. In the repository is a simple `ecrun.py` script that if placed in your working directory and given execute permission will run any EasyCoder file.
 
 It's conventional to add a program title:
 ```
@@ -48,3 +48,14 @@ Compiled Test: 5 lines (4 tokens) in 0 ms
 Run Test
 5-> Hello, world!
 ```
+As you can guess from the above, the print command gives the line in the script it was called from. This is very useful in tracking down debugging print commands in large scripts.
+
+## The EasyCoder programming language
+There are three primary components to the language:
+ 1 Keywords
+ 2 Values
+ 3 Conditions
+
+All program lines start with a keyword - a command to EasyCoder to do something
+
+(Under construction)
