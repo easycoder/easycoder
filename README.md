@@ -1,7 +1,7 @@
 # Introduction
 This is the Python version of EasyCoder, a high-level English-like scripting language suited for prototyping and rapid testing of ideas. It operates on the command line.
 
-The JavaScript version of EasyCoder, which provides a full set of graphical features to run in a browser, is at [https://easycoder.github.io]
+The JavaScript version of EasyCoder, which provides a full set of graphical features to run in a browser, is at [https://easycoder.github.io](https://easycoder.github.io)
 
 ## Quick Start
 1: Install EasyCoder in your Python environment:
