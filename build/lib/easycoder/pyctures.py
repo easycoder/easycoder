@@ -2,7 +2,7 @@
 
 import sys, json
 import tkinter as tk
-from PIL import Image, ImageTk
+from PIL import *
 
 elements = {}
 zlist = []

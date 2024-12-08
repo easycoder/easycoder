@@ -1,6 +1,6 @@
-from ec_classes import FatalError, RuntimeError
-from ec_handler import Handler
-from pyctures import *
+from .ec_classes import FatalError, RuntimeError
+from .ec_handler import Handler
+from .pyctures import *
 
 class Graphics(Handler):
 
