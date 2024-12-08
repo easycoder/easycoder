@@ -7,4 +7,3 @@ if (len(argv) > 1):
     Program(argv)
 else:
     print('Syntax: ecrun <scriptname> [plugins]')
-
