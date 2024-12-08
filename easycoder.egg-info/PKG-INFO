@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: easycoder
-Version: 0.1
+Version: 0.3
 Summary: EasyCoder
 Home-page: https://github.com/easycoder/easycoder
 Author: Graham
@@ -12,6 +12,6 @@ Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
-# EasyCoder Python repository
+# This is EasyCoder in Python
 
 The JavaScript version of EasyCoder is in the easycoder.github.io repository
