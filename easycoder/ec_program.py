@@ -1,4 +1,4 @@
-import time, json
+import time, json, sys
 from copy import deepcopy
 from collections import deque
 from .ec_classes import Script, Token, FatalError, RuntimeError
@@ -9,21 +9,27 @@ import importlib
 class Program:
 
 	def __init__(self, argv):
-
 		scriptName = None
 		domains=[Core]
-		if len(argv)>1:
-			scriptName = argv[1]
-			for n in range(2, len(argv)):
-				arg=argv[n].split(':')
-				module = importlib.import_module(arg[0])
-				myClass = getattr(module, arg[1])
+		if len(argv)>0:
+			scriptName = argv[0]
+			# Process any extra modules needed
+			for n in range(1, len(argv)):
+				args=argv[n].split(':')
+				idx=args[0].rfind('/')
+				if idx<0:
+					modue=args[0]
+				else:
+					sys.path.append(args[0][0:idx])
+					module=args[0][idx+1:]
+				module = importlib.import_module(module)
+				myClass = getattr(module, args[1])
 				domains.append(myClass)
 		else:
 			print('No script supplied')
 			exit();
 
-#		print(domains)
+		print('Domains:',domains)
 		f = open(scriptName, 'r')
 		source = f.read()
 		f.close()
