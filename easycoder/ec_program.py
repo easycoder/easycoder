@@ -22,7 +22,7 @@ class Program:
 				else:
 					sys.path.append(args[0][0:idx])
 					module=args[0][idx+1:]
-				module = importlib.import_module(module)
+				module = importlib.import_module(module.replace('/','.').replace('.py',''))
 				myClass = getattr(module, args[1])
 				domains.append(myClass)
 		else:
