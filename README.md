@@ -6,7 +6,7 @@ The JavaScript version of EasyCoder, which provides a full set of graphical feat
 ## Quick Start
 1: Install EasyCoder in your Python environment:
 ```
-pip install easycoder@git+https://github.com/easycoder/easycoder.git
+pip install easycoder
 ```
 2: Write a test script, 'hello.ecs':
 ```
