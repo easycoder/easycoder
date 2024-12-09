@@ -2,7 +2,7 @@ import json, math, hashlib, threading, os, subprocess, sys, requests, time, numb
 from psutil import Process
 from datetime import datetime, timezone
 from random import randrange
-from .ec_classes import FatalError, RuntimeWarning, RuntimeError, Condition
+from .ec_classes import FatalError, RuntimeWarning, RuntimeError, AssertionError, Condition
 from .ec_handler import Handler
 from .ec_timestamp import getTimestamp
 
@@ -109,6 +109,18 @@ class Core(Handler):
 
     def r_array(self, command):
         return self.nextPC()
+
+    # Assertion
+    def k_assert(self, command):
+        command['test'] = self.nextCondition()
+        self.addCommand(command)
+        return True
+
+    def r_assert(self, command):
+        test = self.program.condition.testCondition(command['test'])
+        if test:
+            return self.nextPC()
+        AssertionError(self.program)
 
     # Begin a block
     def k_begin(self, command):
@@ -307,13 +319,13 @@ class Core(Handler):
         if value2:
             v1 = int(self.getRuntimeValue(value1))
             v2 = int(self.getRuntimeValue(value2))
-            value['content'] = v1/v2
+            value['content'] = int(v1/v2)
         else:
             if value['type'] != 'int' and value['content'] != None:
                 self.nonNumericValueError(self.compiler, command['lino'])
             v = int(self.getRuntimeValue(value))
             v1 = int(self.getRuntimeValue(value1))
-            value['content'] = v/v1
+            value['content'] = int(v/v1)
         self.putSymbolValue(target, value)
         return self.nextPC()
 
@@ -2078,10 +2090,14 @@ class Core(Handler):
         value = self.getRuntimeValue(condition.value1)
         if type(value) == bool:
             return not value if condition.negate else value
-        if type(value) == str:
+        elif type(value) == int:
+            return True if condition.negate else False
+        elif type(value) == str:
             if value.lower() == 'true':
                 return False if condition.negate else True
-            if value.lower() == 'false':
+            elif value.lower() == 'false':
+                return True if condition.negate else False
+            else:
                 return True if condition.negate else False
         return False
 

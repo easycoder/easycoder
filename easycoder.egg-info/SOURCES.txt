@@ -14,4 +14,3 @@ easycoder.egg-info/PKG-INFO
 easycoder.egg-info/SOURCES.txt
 easycoder.egg-info/dependency_links.txt
 easycoder.egg-info/top_level.txt
-tests/__init__.py

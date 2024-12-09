@@ -1,11 +1,19 @@
 import sys
 
-class FatalError():
+class FatalError:
 	def __init__(self, compiler, message):
 		compiler.showWarnings()
 		lino = compiler.tokens[compiler.index].lino
 		script = compiler.script.lines[lino].strip()
 		print(f'Compile error in {compiler.program.name} at line {lino + 1} ({script}): {message}')
+		sys.exit()
+
+class AssertionError:
+	def __init__(self, program):
+		code = program.code[program.pc]
+		lino = code['lino']
+		script = program.script.lines[lino].strip()
+		print(f'Assertion Error in {program.name} at line {lino + 1}')
 		sys.exit()
 
 class RuntimeError:
